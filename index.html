@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formateur IA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        select, button {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #2a5298;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #1e3c72;
+        }
+
+        #response {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🤖 Formateur IA Intelligent</h1>
+<p>Prototype pédagogique simulant un assistant IA adaptatif</p>
+
+<div class="container">
+
+    <textarea id="question" placeholder="Pose ta question..."></textarea>
+
+    <br>
+
+    <select id="level">
+        <option value="debutant">Débutant</option>
+        <option value="intermediaire">Intermédiaire</option>
+        <option value="avance">Avancé</option>
+    </select>
+
+    <br>
+
+    <button onclick="generateResponse()">Générer l'explication</button>
+    <button onclick="generateExercise()">Générer un exercice</button>
+
+    <div id="response"></div>
+
+</div>
+
+<script>
+
+function generateResponse() {
+    let question = document.getElementById("question").value;
+    let level = document.getElementById("level").value;
+    let responseDiv = document.getElementById("response");
+
+    if(level === "debutant") {
+        responseDiv.innerHTML = "<b>Explication (niveau débutant) :</b><br><br>Le machine learning permet aux ordinateurs d'apprendre à partir d'exemples, comme un élève qui apprend en pratiquant.";
+    }
+    else if(level === "intermediaire") {
+        responseDiv.innerHTML = "<b>Explication (niveau intermédiaire) :</b><br><br>Le machine learning est une branche de l'intelligence artificielle qui utilise des algorithmes pour analyser des données et faire des prédictions.";
+    }
+    else {
+        responseDiv.innerHTML = "<b>Explication (niveau avancé) :</b><br><br>Le machine learning repose sur des modèles statistiques optimisés via des fonctions de coût et des techniques comme la descente de gradient.";
+    }
+}
+
+function generateExercise() {
+    let responseDiv = document.getElementById("response");
+    responseDiv.innerHTML = "<b>Exercice :</b><br><br>Explique avec tes propres mots la différence entre un modèle supervisé et non supervisé, puis donne un exemple concret.";
+}
+
+</script>
+
+</body>
+</html>
